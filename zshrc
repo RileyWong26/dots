@@ -106,3 +106,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Logo cool shi
 screenfetch
+
+# PUll logo back up on clear
+alias clear='clear && screenfetch'
