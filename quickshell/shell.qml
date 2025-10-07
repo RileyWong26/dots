@@ -1,5 +1,6 @@
 import Quickshell
 
-Scope {
-  Bar {}
+ShellRoot{
+  BarLeft {}
+  // BarTop{}
 }
