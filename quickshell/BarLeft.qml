@@ -83,13 +83,10 @@ Scope {
           id: clock
     
           // center the bar in its parent component (the window)
-          // anchors.centerIn: parent
           anchors.horizontalCenter: parent.horizontalCenter
 
           // font?
-          // font.family: "ComicSans"
           font.family: notosans.name;
-          // font.family: "Roboto"
           font.pointSize: 10
           // font.family: "NotoSans"
           color: "white"
@@ -98,9 +95,28 @@ Scope {
           // Make look vertical
           // rotation: -90
         } 
+        Text {
+          id: battery
+    
+          // center the bar in its parent component (the window)
+          anchors.horizontalCenter: parent.horizontalCenter
+
+          // font?
+          font.family: notosans.name;
+          font.pointSize: 10
+          // font.family: "NotoSans"
+          color: "white"
+          opacity: 0.5
+          text: UPower.displayDevice.percentage * 100 + "%"
+          // Make look vertical
+          // rotation: -90
+        } 
       }
     }
   }
+  // UPower{
+
+  //   }
   Process {
       id: dateProc
       command: ["date"]
