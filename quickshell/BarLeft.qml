@@ -15,6 +15,7 @@ Scope {
 
     PanelWindow {
       required property var modelData
+      id: panel
       screen: modelData
       anchors {
         left: true
@@ -22,20 +23,56 @@ Scope {
         bottom: true
       }
 
-      implicitWidth: 50
+      // implicitWidth: 50
+      // width: 50
       //What do you think???
       color: "transparent"
       
+      MouseArea{
+        id: mousearea
+        anchors.fill: parent
+        hoverEnabled: true
+        onEntered: {
+          // popout.visible = mousearea.containsMouse
+          // popout.anchor.rect.x = 150
+          animateOpacity.start()
+        }
+        onExited: {
+          // popout.visible = mousearea.containsMouse
+        }
+      }
+      NumberAnimation {
+        id: animateOpacity
+        target: popout
+        properties: "anchor.rect.x"
+        from: 100
+        to: 150
+        duration: 90
+        // loops: Animation.Infinite
+        easing {type: InOut}
+   }
       // Rectangle for rounded borders, so fancy
       Rectangle {
+        id: background
         anchors.fill: parent
         // radius: 20
         color: "#acacac"
         topRightRadius: 20
         bottomRightRadius: 20
         opacity: 0.5
-
+        
       }
+      PopupWindow{
+          id: popout
+          anchor.window: panel
+          anchor.rect.x: panel.width
+          anchor.rect.y: panel.height / 2 - 50
+          color: "red"
+          width: 100
+          height: 100
+          // visible: true
+          visible: false
+        }
       ColumnLayout{
         spacing: 20
         anchors.centerIn: parent
@@ -88,12 +125,9 @@ Scope {
           // font?
           font.family: notosans.name;
           font.pointSize: 10
-          // font.family: "NotoSans"
           color: "white"
           opacity: 0.5
           text: root.time[4]
-          // Make look vertical
-          // rotation: -90
         } 
         Text {
           id: battery
@@ -104,19 +138,33 @@ Scope {
           // font?
           font.family: notosans.name;
           font.pointSize: 10
-          // font.family: "NotoSans"
           color: "white"
           opacity: 0.5
           text: UPower.displayDevice.percentage * 100 + "%"
-          // Make look vertical
-          // rotation: -90
+          
         } 
+        Text {
+          id: hoverable
+    
+          // center the bar in its parent component (the window)
+          anchors.horizontalCenter: parent.horizontalCenter
+
+          // font?
+          font.family: notosans.name;
+          font.pointSize: 10
+          color: "white"
+          opacity: 0.5
+          text: mouse.hovered ? "hi" : "hover me"
+          
+        } 
+        HoverHandler{
+          id: mouse
+          acceptedDevices: PointerDevice.Mouse | PointerDevice.TouchPad
+          cursorShape: Qt.PointingHandCursor
+        }
       }
     }
   }
-  // UPower{
-
-  //   }
   Process {
       id: dateProc
       command: ["date"]
@@ -124,7 +172,10 @@ Scope {
       running: true
 
       stdout: StdioCollector {
-        onStreamFinished: root.time = this.text.split(" ")
+        onStreamFinished: {
+          root.time = this.text.split(" ");
+        }
+
       }
     }
   Timer {
