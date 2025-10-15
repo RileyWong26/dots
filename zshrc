@@ -109,3 +109,8 @@ screenfetch
 
 # PUll logo back up on clear
 alias clear='clear && screenfetch'
+
+# Damecon alias
+alias damecon='~/dotfiles/damecon'
+
+alias f='nohup firefox &'
