@@ -113,4 +113,8 @@ alias clear='clear && screenfetch'
 # Damecon alias
 alias damecon='~/dotfiles/damecon'
 
+# Firefox
 alias f='nohup firefox &'
+
+# Reset audio devices
+alias audio='systemctl --user restart pulseaudio'
