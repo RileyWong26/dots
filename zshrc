@@ -116,8 +116,5 @@ alias damecon='~/dotfiles/damecon'
 # Firefox
 alias f='nohup firefox &'
 
-alias nv='nvim'
-
-
 # Reset audio devices
-alias audio='systemctl --user restart pulseaudio'export PATH="/home/rileywong/.local/bin:$PATH"
+alias audio='systemctl --user restart pulseaudio'

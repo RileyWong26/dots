@@ -1,3 +1,0 @@
-cd ~/damecon-browser
-yarn start > /dev/null 2>&1 &
-cd 
