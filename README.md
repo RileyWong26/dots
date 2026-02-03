@@ -11,4 +11,5 @@
 - ```network manager```
 - ```slurp```
 - ```grim```
+- ```neovim```
 - <a href="https://github.com/planetarian/damecon-browser">```damecon-browser```</a>
