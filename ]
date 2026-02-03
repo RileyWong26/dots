@@ -68,8 +68,8 @@ exec-once = quickshell -p /home/rileywong/dotfiles/quickshell
 
 env = XCURSOR_SIZE,10
 env = HYPRCURSOR_SIZE,10
-$PRIMARY_COLOR = rgb(ff9999)
-$SECONDARY_COLOR = rgb(eb6f92)
+$PRIMARY_COLOR = rgba(33ccffee)
+$SECONDARY_COLOR = rgba(00ff99ee)
 
 ###################
 ### PERMISSIONS ###
@@ -102,7 +102,7 @@ general {
     border_size = 2
 
     # https://wiki.hypr.land/Configuring/Variables/#variable-types for info about colors
-    col.active_border = $PRIMARY_COLOR $SECONDARY_COLOR 25deg
+    col.active_border = $PRIMARY_COLOR $SECONDARY_COLOR 45deg
     col.inactive_border = rgba(595959aa)
 
     # Set to true enable resizing windows by clicking and dragging on borders and gaps
@@ -119,8 +119,8 @@ xwayland{
 
 # https://wiki.hypr.land/Configuring/Variables/#decoration
 decoration {
-    rounding = 5
-    rounding_power = 1
+    rounding = 10
+    rounding_power = 2
 
     # Change transparency of focused and unfocused windows
     active_opacity = 1.0
