@@ -14,4 +14,5 @@
 - ```slurp```
 - ```grim```
 - ```neovim```
+- ```ghostty```
 - <a href="https://github.com/planetarian/damecon-browser">```damecon-browser```</a>
