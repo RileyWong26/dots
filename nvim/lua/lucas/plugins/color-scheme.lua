@@ -1,4 +1,4 @@
--- colors-scheme conffig
+-- jolors-scheme conffig
 return {
   "rose-pine/neovim",
   name = "rose-pine",
@@ -8,8 +8,20 @@ return {
       styles = {
         transparency = true,
       },
+      palette = {
+        main = {
+          pine = "#eb6f92",
+          -- rose = "#d7827e",
+        },
+      },
+      highlight_groups = {
+        StatusLine = { fg = "gold", bg = "gold", blend = 10 },
+        -- StatusLineNC = { fg = "subtle", bg = "surface" },
+      },
     })
 
     vim.cmd("colorscheme rose-pine")
+    -- vim.cmd("highlight Keyword guifg=#eb6f92")
+    -- vim.cmd("highlight Statement guifg=#eb6f92")
   end,
 }
