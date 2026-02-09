@@ -39,8 +39,6 @@ Scope {
           animateOpacity.start()
         }
         onExited: {
-          // popout.visible = mousearea.containsMouse
-        }
       }
       NumberAnimation {
         id: animateOpacity
@@ -52,14 +50,15 @@ Scope {
         // loops: Animation.Infinite
         easing {type: InOut}
       }
+      // 
       Rectangle{
         id: background
         anchors.fill: parent
         // radius: 20
-        color: '#2b2b2b'
+        color: 'transparent'
         topRightRadius: 20
         bottomRightRadius: 20
-        opacity: 0.5
+        opacity: 1.0
       }
       Date{}
       PopupWindow{
@@ -76,7 +75,7 @@ Scope {
       
       }
     }
-  
+  }
   
   // Load font
   FontLoader {
