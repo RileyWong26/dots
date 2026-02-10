@@ -19,9 +19,22 @@
 - ```ghostty```
 
 ## Setting up
-####Link zsh
-```
+#### Link zsh
+```bash
 # zshrc is normally in ~/
-ln -s /dotfiles/.zshrc ~/.zshrc
+ln -s /dots/.zshrc ~/.zshrc
 ```
+
+#### Link ghostty
+```bash
+# ghostty config is in ~/.config/
+ln -s /dots/ghostty ~/.config/ghostty
+```
+
+#### Link neovim
+```bash
+# neovim config is in ~/.config/
+ln -s /dots/nvim ~/.config/nvim
+```
+
 
