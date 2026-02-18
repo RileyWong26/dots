@@ -20,14 +20,14 @@ import QtQuick.Layouts
 
           // font?
           font.family: notosans.name;
-          font.pointSize: 12
+          font.pointSize: 20
           color: "white"
           text: root.time[0]
           // rotation: -90
         } 
         // Text featuring day of the week as a number 
         Text {
-          id: date
+          id: monthDay
           
           // center the bar in its parent component (the window)
           // anchors.centerIn: parent
@@ -35,15 +35,15 @@ import QtQuick.Layouts
 
           // font?
           font.family: notosans.name;
-          font.pointSize: 10
+          font.pointSize: 18
           color: "white"
-          text: root.time[1] + " " + root.time[2] + " " + root.time[3]
+          text: root.time[1] + " " + root.time[2]
           // Make look vertical
           // rotation: -90
         } 
         // Time
         ColumnLayout { 
-          id: hourminute
+          id: verticalTimeLayout
           spacing: 0
           anchors.horizontalCenter: parent.horizontalCenter
           // Hours
@@ -55,8 +55,8 @@ import QtQuick.Layouts
             font.pointSize: 20
             color: "white"
             property var hoursText:   {
-              var hours = parseInt(root.time[4])
-              var military = root.time[5]
+              var hours = parseInt(root.time[3])
+              var military = root.time[4]
               // Afternoon convert to military time
               if  (military == "PM"){
                 if (hours != 12 ){
@@ -81,7 +81,7 @@ import QtQuick.Layouts
             id: minutes
             color: "white"
             font.pointSize: 20
-            text: root.time[4].split(":")[1]
+            text: root.time[3].split(":")[1]
           }
         }
         // Set the timer process

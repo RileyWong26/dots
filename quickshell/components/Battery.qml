@@ -9,9 +9,9 @@ RowLayout {
   // anchors.bottom: parent.bottom
   anchors.horizontalCenter: parent.horizontalCenter
   // Width & Height
-  width: background.width - 30
+  width: panel.width - 30
   height: 40
-  spacing: 20
+  spacing: 18
   // Battery Icon thing 
   Rectangle {
     id: batteryBorder

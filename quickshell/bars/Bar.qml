@@ -26,7 +26,7 @@ Scope {
       property bool hovered: false
       // Width & Height
       height: screen.height
-      width: hovered ? 100 : 0
+      width: hovered ? 75 : 0
       // BG color
       color: "transparent"
       // Animation on changes to width property
