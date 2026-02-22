@@ -4,6 +4,8 @@
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Default editor
+export EDITOR=nvim
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -116,8 +118,11 @@ alias damecon='~/dotfiles/damecon'
 # Firefox
 alias f='firefox > /dev/null 2> /dev/null &'
 
+# Neovim
 alias nv='nvim'
-
 
 # Reset audio devices
 alias audio='systemctl --user restart pulseaudio'export PATH="/home/rileywong/.local/bin:$PATH"
+
+# Kubernetes
+alias k='kubectl'
