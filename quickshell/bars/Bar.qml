@@ -29,6 +29,8 @@ Scope {
       width: hovered ? 75 : 0
       // BG color
       color: "transparent"
+      // color: "#eefac8c8"
+      
       // Animation on changes to width property
       Behavior on width{
         NumberAnimation {
@@ -49,7 +51,9 @@ Scope {
       // Rectangle filling the bar for text 
       Rectangle{
         id: background
-        color: 'transparent'
+        // color: 'transparent'
+         // color: "#eefac8c8"
+        color: "#88a1748f"
         topRightRadius: 20
         bottomRightRadius: 20
         anchors.fill: parent
@@ -57,8 +61,10 @@ Scope {
         ColumnLayout{
           anchors.fill:parent
           spacing: 10
+          // Components
           Components.Date{}
           Components.Networks{}
+          Components.Audio{}
           Components.Battery{}
         }
         // Keep the tab open 
