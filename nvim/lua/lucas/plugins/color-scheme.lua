@@ -12,6 +12,8 @@ return {
         main = {
           pine = "#eb6f92",
           -- rose = "#d7827e",
+          muted = "#9893a5",
+          subtle = "#9893a5",
         },
       },
       highlight_groups = {
