@@ -4,57 +4,92 @@ import QtQuick
 import Quickshell.Widgets
 import QtQuick.Layouts
     
-    ColumnLayout{
-        spacing: 20
-        // anchors.centerIn: parent
-        // anchors.top: parent.top
-        anchors.horizontalCenter: parent.horizontalCenter
-        id: timeLayout
-        property var time: null
-        // Day of the week text
-        Text {
-          id: day
-    
-          // center the bar in its parent component (the window)
-          anchors.horizontalCenter: parent.horizontalCenter
+ColumnLayout{
+    spacing: 20
+    // anchors.centerIn: parent
+    // anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
+    id: timeLayout
+    property var time: null
+    // Day of the week text
+    Text {
+      id: day
 
-          // font?
+      // center the bar in its parent component (the window)
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      // font?
+      font.family: notosans.name;
+      font.pointSize: 12
+      color: "white"
+      text:  {
+        // Handle abreviated date
+        switch ( root.time[0]){
+          case "Mon":
+            return "Monday";
+          case "Tue":
+            return "Tuesday";
+          case "Wed":
+            return "Wednesday";
+          case "Thu":
+            return "Thursday";
+          case "Fri":
+            return "Friday";
+          case "Sat":
+            return "Saturday";
+          case "Sun" :
+            return "Sunday";
+          default:
+            return "Monday";
+        }
+      }
+      // rotation: -90
+    } 
+    // Text featuring day of the month as a number 
+    Text {
+      id: monthDay
+      
+      // center the bar in its parent component (the window)
+      // anchors.centerIn: parent
+      anchors.horizontalCenter: parent.horizontalCenter
+
+      // font?
+      font.family: notosans.name;
+      font.pointSize: 14
+      color: "white"
+      text: {
+        if (root.time){
+          root.time[1] + ". " + root.time[2]  
+        }
+        else {
+          ""
+        }
+      }
+      // Make look vertical
+      // rotation: -90
+    } 
+    Rectangle{ 
+      width: panel.width * 0.85
+      height: 70
+      anchors.horizontalCenter: parent.horizontalCenter
+      radius: 10
+      color: "#88e0bcd2"
+      // Time
+      ColumnLayout { 
+        id: verticalTimeLayout
+        spacing: -1
+        anchors.horizontalCenter: parent.horizontalCenter
+        anchors.verticalCenter: parent.verticalCenter
+        // Hours
+        Text {
+          id: hours
+
+          // Text
           font.family: notosans.name;
           font.pointSize: 20
           color: "white"
-          text: root.time[0]
-          // rotation: -90
-        } 
-        // Text featuring day of the week as a number 
-        Text {
-          id: monthDay
-          
-          // center the bar in its parent component (the window)
-          // anchors.centerIn: parent
-          anchors.horizontalCenter: parent.horizontalCenter
-
-          // font?
-          font.family: notosans.name;
-          font.pointSize: 18
-          color: "white"
-          text: root.time[1] + " " + root.time[2]
-          // Make look vertical
-          // rotation: -90
-        } 
-        // Time
-        ColumnLayout { 
-          id: verticalTimeLayout
-          spacing: 0
-          anchors.horizontalCenter: parent.horizontalCenter
-          // Hours
-          Text {
-            id: hours
-      
-            // Text
-            font.family: notosans.name;
-            font.pointSize: 20
-            color: "white"
-            property var hoursText:   {
+          property var hoursText:   {
+            if (root.time)  {
               var hours = parseInt(root.time[3])
               var military = root.time[4]
               // Afternoon convert to military time
@@ -70,43 +105,46 @@ import QtQuick.Layouts
                   return "0" + String(hours)
                 } 
                 // return flat hour
-                return String(hours)
-              }
+              }   return String(hours)
               return "00"
             }
-            text: hoursText
+            else {
+              ""
+            }
           }
-          // Minutes
-          Text{
-            id: minutes
-            color: "white"
-            font.pointSize: 20
-            text: root.time[3].split(":")[1]
-          }
+          text: hoursText
         }
-        // Set the timer process
-        Process {
-              id: dateProc
-              command: ["date"]
-
-              running: true
-
-              stdout: StdioCollector {
-                onStreamFinished: {
-                  root.time = this.text.split(" ");
-                }
-
-              }
+        // Minutes
+        Text{
+          id: minutes
+          color: "white"
+          font.pointSize: 20
+          text: root.time[3].split(":")[1]
         }
-
-        // Create a timer
-        Timer {
-          interval: 1000 // 1000ms = 1s
+      }
+    }       // Set the timer process
+    Process {
+          id: dateProc
+          command: ["date"]
 
           running: true
 
-          repeat: true
+          stdout: StdioCollector {
+            onStreamFinished: {
+              root.time = this.text.split(" ");
+            }
 
-          onTriggered: dateProc.running = true
-        }
+          }
+    }
+
+    // Create a timer
+    Timer {
+      interval: 1000 // 1000ms = 1s
+
+      running: true
+
+      repeat: true
+
+      onTriggered: dateProc.running = true
+    }
 }

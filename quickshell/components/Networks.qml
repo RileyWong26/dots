@@ -22,21 +22,7 @@ ColumnLayout{
       onExited: networkBox.visible = false
     }
   }
-  // wifi icon I guess
-MouseArea{
-      // anchors.fill: parent
-      hoverEnabled: true
-      width: 100
-      height: 100
-      onClicked: networkBox.visible = true
-      propagateComposedEvents: true
-      preventStealing: true
-     Image{
-        anchors.horizontalCenter: parent.horizontalCenter
-        source: "../icons/WifiWhite.svg"
-      }
-    }
- 
+  
   // Network Name
   Text{
     property var wifi : { 
@@ -60,5 +46,21 @@ MouseArea{
     text: wifi
     font.pointSize : 10
     color:   "white"  
+    rotation: -90
   }
+  // wifi icon I guess
+MouseArea{
+      // anchors.fill: parent
+      hoverEnabled: true
+      width: 100
+      height: 100
+      onClicked: networkBox.visible = true
+      propagateComposedEvents: true
+      preventStealing: true
+     Image{
+        anchors.horizontalCenter: parent.horizontalCenter
+        source: "../icons/WifiWhite.svg"
+      }
+    }
+ 
 }

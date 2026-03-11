@@ -3,47 +3,66 @@ import Quickshell
 import QtQuick 
 import QtQuick.Layouts
 
-RowLayout { 
-  id: batterySection
-  // anchors
-  // anchors.bottom: parent.bottom
+Rectangle{ 
+  id: batteryBox
+  width: panel.width * 0.85
+  height: 65
+  color: "#88e0bcd2"
+  // Center
   anchors.horizontalCenter: parent.horizontalCenter
-  // Width & Height
-  width: panel.width - 30
-  height: 40
-  spacing: 18
-  // Battery Icon thing 
-  Rectangle {
-    id: batteryBorder
-
+  // Border
+  border.color: "#88e0bcd2"
+  radius: 10
+  ColumnLayout{ 
+    id: batterySection
+    // anchors
+    anchors.top: parent.top
+    anchors.horizontalCenter: parent.horizontalCenter
     anchors.verticalCenter: parent.verticalCenter
-    border.color: "white"
-    width: batterySection.width - 30
-    height: batterySection.height - 30
-    color: "transparent"
-    // Fill the rectangle boi to show battery fullness
+    // Width & Height
+    // width: panel.width - 30
+    width: 70
+    height: 70
+    spacing: 10
+
+    // Battery Icon thing 
     Rectangle {
-      id: batteryFill
-      property var batteryPercent : UPower.displayDevice.percentage
-      width: batteryBorder.width * batteryPercent
-      height: batteryBorder.height * batteryPercent
+      // The border
+      id: batteryBorder
+
+      anchors.horizontalCenter: parent.horizontalCenter
+      border.color: "white"
+      width: batterySection.width - 30
+      height: 10
+      color: "transparent"
+      // Fill the rectangle boi to show battery fullness
+      Rectangle {
+        id: batteryFill
+        property var batteryPercent : UPower.displayDevice.percentage
+        width: batteryBorder.width * batteryPercent
+        height: batteryBorder.height * batteryPercent
+      }
     }
-  }
-  // Battery expressed as a percent text
-  Rectangle{ 
-    Text {
-      id: batteryText
+    // Battery expressed as a percent text
+    Rectangle{ 
+      anchors.horizontalCenter: parent.horizontalCenter
+      color: "transparent"
+      width: 10
+      height: 20
+      Text {
+        id: batteryText
 
-      anchors.verticalCenter: parent.verticalCenter
-      // center the bar in its parent component (the window)
-      // anchors.horizontalCenter: parent.horizontalCenter
+        // center the bar in its parent component (the window)
+        anchors.horizontalCenter: parent.horizontalCenter
 
-      // font?
-      font.family: notosans.name;
-      font.pointSize: 10
-      color: "white"
-      text: UPower.displayDevice.percentage * 100 + "%"
+        anchors.top: parent.top
+        // font?
+        font.family: notosans.name;
+        font.pointSize: 10
+        color: "white"
+        text: UPower.displayDevice.percentage * 100 + "%"
 
-    }
+      }
+    } 
   } 
 }
