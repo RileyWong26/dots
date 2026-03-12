@@ -1,17 +1,18 @@
-import Quickshell.Services.UPower
 import Quickshell
 import QtQuick 
 import QtQuick.Layouts
+import qs.utils
+import qs.theme
+
 
 Rectangle{ 
   id: batteryBox
   width: panel.width * 0.85
   height: 65
-  color: "#88e0bcd2"
+  color: Colours.secondary
   // Center
   anchors.horizontalCenter: parent.horizontalCenter
   // Border
-  border.color: "#88e0bcd2"
   radius: 10
   ColumnLayout{ 
     id: batterySection
@@ -38,9 +39,8 @@ Rectangle{
       // Fill the rectangle boi to show battery fullness
       Rectangle {
         id: batteryFill
-        property var batteryPercent : UPower.displayDevice.percentage
-        width: batteryBorder.width * batteryPercent
-        height: batteryBorder.height * batteryPercent
+        width: batteryBorder.width * Battery.capacity / 100
+        height: batteryBorder.height * Battery.capacity / 100
       }
     }
     // Battery expressed as a percent text
@@ -60,7 +60,7 @@ Rectangle{
         font.family: notosans.name;
         font.pointSize: 10
         color: "white"
-        text: UPower.displayDevice.percentage * 100 + "%"
+        text: Battery.capacity  + "%"
 
       }
     } 
