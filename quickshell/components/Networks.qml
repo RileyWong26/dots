@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Layouts
 import QtQuick.Controls
 import Quickshell.Widgets
+import qs.utils
 
 ColumnLayout{
   spacing: 10

@@ -3,6 +3,7 @@ import Quickshell.Io
 import QtQuick
 import Quickshell.Widgets
 import QtQuick.Layouts
+import qs.utils
     
 ColumnLayout{
     spacing: 20

@@ -2,8 +2,7 @@ import Quickshell
 import QtQuick 
 import QtQuick.Controls
 import QtQuick.Layouts
-
-import "../utils/" as Utils
+import qs.utils
 
 
 Rectangle { 
@@ -17,13 +16,11 @@ Rectangle {
   Slider{
     width: parent.width
     
-    value: 0.5
+    // value: Utils.Audio.volume
+    value: Audio.volume
 
   }
 
-  Utils.Pipewire{
-    id: pipewire
-  }
 
   anchors.horizontalCenter: parent.horizontalCenter
   Text{
@@ -33,7 +30,7 @@ Rectangle {
     
     color: "white"
 
-    text: pipewire.audio.muted
+    text: Audio.muted
     
   }
 
