@@ -7,6 +7,7 @@
 
 ## Dependencies 
 #### Linux Dist: ```Arch Linux```
+#### Windows Manager: ```Wayland```
 - ```quickshell```
 - ```hyprland```
 - ```hyprpaper```
