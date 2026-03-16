@@ -32,7 +32,7 @@ Rectangle{
       id: batteryBorder
 
       anchors.horizontalCenter: parent.horizontalCenter
-      border.color: "white"
+      border.color: Colours.accent
       width: batterySection.width - 30
       height: 10
       color: "transparent"
@@ -41,6 +41,7 @@ Rectangle{
         id: batteryFill
         width: batteryBorder.width * Battery.capacity / 100
         height: batteryBorder.height * Battery.capacity / 100
+        color: Colours.accent
       }
     }
     // Battery expressed as a percent text
@@ -59,7 +60,7 @@ Rectangle{
         // font?
         font.family: notosans.name;
         font.pointSize: 10
-        color: "white"
+        color: Colours.text_primary
         text: Battery.capacity  + "%"
 
       }
