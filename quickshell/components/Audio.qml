@@ -3,6 +3,7 @@ import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import qs.utils
+import qs.theme
 
 
 Rectangle { 
@@ -11,7 +12,7 @@ Rectangle {
 
   width: 65
   height: 65
-  color: "transparent"
+  color: Colours.secondary 
 
   Slider{
     width: parent.width
@@ -28,7 +29,7 @@ Rectangle {
     
     anchors.horizontalCenter:parent.horizontalCenter
     
-    color: "white"
+    color: Colours.text_primary
 
     text: Audio.muted
     

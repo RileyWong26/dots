@@ -2,6 +2,7 @@ import QtQuick
 import Quickshell
 import QtQuick.Layouts
 import "../components/" as Components
+import qs.theme
 
 Scope {
 
@@ -29,7 +30,6 @@ Scope {
       width: hovered ? 75 : 0
       // BG color
       color: "transparent"
-      // color: "#eefac8c8"
       
       // Animation on changes to width property
       Behavior on width{
@@ -51,22 +51,29 @@ Scope {
       // Rectangle filling the bar for text 
       Rectangle{
         id: background
-        // color: 'transparent'
-         // color: "#eefac8c8"
-        color: "#88a1748f"
+
+        color: Colours.primary
+
         topRightRadius: 20
         bottomRightRadius: 20
+
         anchors.fill: parent
+
         // Text / Date Component
         ColumnLayout{
           anchors.fill:parent
+          anchors.bottomMargin: 15
           spacing: 10
+
           // Components
           Components.Date{}
           Components.Networks{}
           Components.Audio{}
           Components.Battery{}
+          Components.Bluetooth{}
+          Components.Power{}
         }
+
         // Keep the tab open 
         MouseArea {
             anchors.fill: parent

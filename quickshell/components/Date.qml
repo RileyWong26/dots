@@ -4,6 +4,7 @@ import QtQuick
 import Quickshell.Widgets
 import QtQuick.Layouts
 import qs.utils
+import qs.theme
     
 ColumnLayout{
     spacing: 20
@@ -74,7 +75,7 @@ ColumnLayout{
       height: 70
       anchors.horizontalCenter: parent.horizontalCenter
       radius: 10
-      color: "#88e0bcd2"
+      color: Colours.secondary
       // Time
       ColumnLayout { 
         id: verticalTimeLayout
@@ -88,7 +89,7 @@ ColumnLayout{
           // Text
           font.family: notosans.name;
           font.pointSize: 20
-          color: "white"
+          color: Colours.text_primary
           property var hoursText:   {
             if (root.time)  {
               var hours = parseInt(root.time[3])
@@ -118,7 +119,7 @@ ColumnLayout{
         // Minutes
         Text{
           id: minutes
-          color: "white"
+          color: Colours.text_primary
           font.pointSize: 20
           text: root.time[3].split(":")[1]
         }
