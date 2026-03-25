@@ -8,5 +8,14 @@ Singleton{
   id: root
 
   readonly property var battery: UPower.displayDevice
-  readonly property real capacity: Math.round ( root.battery.percentage * 100) 
+
+  // Capacities
+  readonly property real capacity: Math.round ( battery.percentage * 100) 
+  readonly property real capacity_percent: capacity / 100
+
+
+  // Charging state
+  readonly property var state: battery.state
+  readonly property bool charging: ( state == UPowerDeviceState.Charging || state == UPowerDeviceState.FullyCharged )
+
 }
