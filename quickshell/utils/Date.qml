@@ -78,7 +78,12 @@ Singleton{
 
         stdout: StdioCollector {
           onStreamFinished: {
-            root.date = this.text.split(" ");
+            let date = this.text.split(" ");
+            if (date[2] == ""){
+              date.splice(2,1);
+            }
+            root.date = date;
+
           }
 
         }
