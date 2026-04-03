@@ -24,21 +24,23 @@ WidgetBox{
         WifiIcon{
           scale: 2/3
           fillColor: (Networks.signal_strength > 45) ? Colours.accent : "transparent"
-          strokeColor: "transparent"
+          strokeColor: Colours.secondary
         }
 
         // 1 bar
         WifiIcon{
           scale: 1/3
           fillColor: (Networks.signal_strength > 20) ? Colours.accent : "transparent"
-          strokeColor: "transparent"
+          // strokeColor: "transparent"
+          strokeColor: Colours.secondary
         }
 
         // 1 bar
         WifiIcon{
           scale: 1/3.5
           fillColor: Networks.connected ? Colours.accent : "transparent"
-          strokeColor: "transparent"
+          // strokeColor: "transparent"
+          strokeColor: Colours.secondary
         }
 
         // Not connected line
