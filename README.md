@@ -1,4 +1,8 @@
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ae9e35f7-10d7-4a9b-99ec-86600cbe6f5a" />
+
+<div align="center">
+  <img width="200" alt="repo-size" src="./.github/repo_size.svg" />
+</div>
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/b87bdd7f-5d04-45b9-862b-27b2d02aa1aa" />
 
 ## Table of Contents
 - <a href="#dependencies">Dependencies </a>
