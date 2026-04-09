@@ -16,13 +16,13 @@ jobs:
       - name: Fetch SVG
         run: |
           curl -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
-                https://badges-chi.vercel.app/repo-size/RileyWong26/dotfiles -o ./github/repo_size.svg
+                https://badges-chi.vercel.app/repo-size/RileyWong26/dotfiles -o ./.github/repo_size.svg
 
       # Step 3: Commit the SVG if it changed
       - name: Commit SVG
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
-          git add ./github/repo_size.svg
+          git add ./.github/repo_size.svg
           git diff --cached --quiet || git commit -m "Update SVG" 
           git push
