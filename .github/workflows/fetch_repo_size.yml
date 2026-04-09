@@ -16,7 +16,7 @@ jobs:
       - name: Fetch SVG
         run: |
           curl -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
-                https://badges-chi.vercel.app/repo-size/RileyWong26/dotfiles -o ./.github/repo_size.svg
+                https://badges-chi.vercel.app/repo-size/RileyWong26/dots -o ./.github/repo_size.svg
 
       # Step 3: Commit the SVG if it changed
       - name: Commit SVG
