@@ -1,0 +1,36 @@
+
+<svg width="544" height="100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'MyFont';
+        src: url(data:font/woff2;base64,AAEAAA...) format('woff2');
+      }
+
+      text {
+font-family: "Space Grotesk", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+      }
+    </style>
+  </defs>
+  <rect x="0" y="0" width="304" height="100"  fill="#0D1117"/>
+  <text x="35" y="62"
+        font-size="40"
+        fill="white"
+        font-family="Space Grotesk"
+        letter-spacing="5">
+    REPO SIZE
+  </text>
+
+  <rect x="304" y="0" width="310" height="100"  fill="#E4CCFF"/>
+  <text x="339" y="62"
+        font-size="40"
+        fill="#0D1117"
+        font-family="Space Grotesk"
+        letter-spacing="10">
+    435 KB
+  </text>
+</svg>
+  
