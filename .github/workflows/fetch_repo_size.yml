@@ -1,0 +1,28 @@
+name: Update SVG
+
+on:
+  push:
+    branches:
+      - main # or your default branch
+
+jobs:
+  fetch-svg:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout your repo
+      - uses: actions/checkout@v3
+
+      # Step 2: Fetch the SVG from your API
+      - name: Fetch SVG
+        run: |
+          curl -H "Authorization: Bearer ${{ secrets.API_TOKEN }}" \
+                https://badges-chi.vercel.app/repo-size/RileyWong26/dotfiles -o ./github/repo_size.svg
+
+      # Step 3: Commit the SVG if it changed
+      - name: Commit SVG
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add ./github/repo_size.svg
+          git diff --cached --quiet || git commit -m "Update SVG" 
+          git push
