@@ -11,6 +11,8 @@ jobs:
     steps:
       # Step 1: Checkout your repo
       - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       # Step 2: Fetch the SVG from your API
       - name: Fetch SVG
